@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.32.0",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.8.1",
+    "concurrently": "^7.6.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.32.0",
+    "husky": "^9.1.7",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.8.3"
+  },
+  "name": "express-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "build:watch": "tsc --watch",
+    "dev": "concurrently \"npm run build:watch\" \"nodemon dist/index.js\"",
+    "prepare": "husky install",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
