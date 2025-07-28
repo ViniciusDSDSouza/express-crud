@@ -21,11 +21,12 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "lowdb": "^2.1.0"
   },
   "scripts": {
     "build:watch": "tsc --watch",
-    "dev": "concurrently \"npm run build:watch\" \"nodemon dist/index.js\"",
+    "dev": "concurrently \"npm run build:watch\" \"nodemon --watch dist/index.js dist/index.js\"",
     "prepare": "husky install",
     "lint": "eslint . --ext .ts"
   },
