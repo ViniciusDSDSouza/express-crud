@@ -1,5 +1,5 @@
 import express from "express";
-import movies from "./routes/movieRoutes.js";
+import movies from "./routes/movieRoutes";
 
 const app = express();
 const PORT = 8080;

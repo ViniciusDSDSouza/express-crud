@@ -13,20 +13,20 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.32.0",
     "husky": "^9.1.7",
-    "nodemon": "^3.1.10",
     "typescript": "^5.8.3"
   },
   "name": "express-api",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "dependencies": {
     "express": "^5.1.0",
-    "lowdb": "^2.1.0"
+    "lowdb": "^2.1.0",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0"
   },
   "scripts": {
     "build:watch": "tsc --watch",
-    "dev": "concurrently \"npm run build:watch\" \"nodemon --watch dist/index.js dist/index.js\"",
+    "dev": "ts-node-dev --respawn src/index.ts",
     "prepare": "husky install",
     "lint": "eslint . --ext .ts"
   },

@@ -1,14 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
+    "target": "es2021",
+    "module": "CommonJS",
+    "rootDirs": ["src"],
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "build",
+    "sourceMap": false,
+    "removeComments": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true
   },
-  "include": ["src"]
+  "include": ["src//*"],
+  "exclude": ["node_modules", "build"]
 }

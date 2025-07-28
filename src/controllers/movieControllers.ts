@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import { db } from "../db.js";
-import { Movie } from "../models/Movies.js";
+import { db } from "../db";
+import { Movie } from "../models/Movies";
 
 export async function getMovies(_req: Request, res: Response) {
   await db.read();
