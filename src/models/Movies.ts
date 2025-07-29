@@ -1,6 +1,9 @@
-export type Movie = {
-  id: number;
+export interface Movie extends CreateMoviePayload {
+  id: string;
+}
+
+export interface CreateMoviePayload {
   name: string;
   director: string;
-  year: string;
-};
+  year: number;
+}
