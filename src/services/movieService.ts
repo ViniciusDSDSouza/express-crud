@@ -1,5 +1,8 @@
 import { Movie, CreateMoviePayload } from "models/Movies";
-import { db } from "../db";
+import { db, initDB } from "../db";
+import { v4 as uuid } from "uuid";
+
+initDB();
 
 export async function getMovies(): Promise<Movie[]> {
   await db.read();
@@ -19,7 +22,7 @@ export async function createMovie(payload: CreateMoviePayload): Promise<Movie> {
     db.data = { movies: [] };
   }
 
-  const newMovie: Movie = { ...payload, id: String(Date.now()) };
+  const newMovie: Movie = { ...payload, id: uuid() };
 
   db.data.movies.push(newMovie);
   await db.write();
