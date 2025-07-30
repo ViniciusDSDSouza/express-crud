@@ -1,13 +1,21 @@
 import { Response, Request } from "express";
 import * as movieServices from "../services/movieService";
+import { createMovieSchema } from "../schemas/movieSchema";
+import z from "zod";
 
 export async function getMovies(_req: Request, res: Response) {
   res.status(200).json(await movieServices.getMovies());
 }
 
 export async function createMovie(req: Request, res: Response) {
+  const validation = createMovieSchema.safeParse(req.body);
+
+  if (!validation.success) {
+    return res.status(400).json(z.treeifyError(validation.error));
+  }
+
   try {
-    const response = await movieServices.createMovie(req.body);
+    const response = await movieServices.createMovie(validation.data);
     res.status(201).json({ message: "Movie created with success", response });
   } catch (err) {
     console.error("Error creating movie. ", err);
